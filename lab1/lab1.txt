@@ -1,9 +1,0 @@
-Proces jest wykonaniem programu - zawiera własne wskaźniki, ...
-
-Wątki to lekkie procesy, część danych współdzielą z procesem, ale mają własne liczniki rozkazów, ...
-
-Przy jednym procesie koszt wywłaszczania jest duży. Przy wielu wątkach mniej kosztowne jest wywłaszczanie, ale nie należy przesadzać (zależność od liczby rdzeni).
-
-Tworzenie wątków w Javie:
-- dziedziczenie z Thread, nadpisanie metody run i wywołanie start()
-- implementacja interfejsu Runnable, nadpisanie metody run i wywołanie start()
