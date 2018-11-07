@@ -21,21 +21,22 @@ public class RestaurantCustomer implements Runnable {
     public int getPairId() { return pairId; }
 
     public void run() {
-        int round = 0;
-        while (true) {
+        int round = 0; boolean continueEating = true;
+        while (continueEating) {
             try {
-                //Thread.sleep(randSleep());
-                //System.out.println("\u001B[33m" + this + " WANTS A TABLE!" + "\u001B[0m");
+                Thread.sleep(randSleep());
+                System.out.println("\u001B[33m" + this + " WANTS A TABLE!" + "\u001B[0m");
                 waiter.takeTable(this);
-                //System.out.println("\u001B[32m" + this + " HAS A TABLE!" + "\u001B[0m");
-                //Thread.sleep(randSleep());
-                //System.out.println("\u001B[36m" + this + " FINISHED EATING!" + "\u001B[0m");
-                waiter.leaveTable(this);
+                System.out.println("\u001B[32m" + this + " HAS A TABLE!" + "\u001B[0m");
+                Thread.sleep(randSleep());
                 System.out.println("\u001B[36m" + this + " FINISHED EATING!" + "\u001B[0m");
+                waiter.leaveTable(this);
             } catch (Exception exc) {
                 exc.printStackTrace();
             }
-            //round++;
+            if (round > 3)
+                continueEating = false;
+            round++;
         }
     }
 
