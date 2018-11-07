@@ -1,0 +1,52 @@
+Zajęcia 15.10.2018
+
+Semafory
+
+inc
+dec
+zm
+
+
+Object syn = new Object();
+
+inc {
+	synchr (syn) {
+		zm += 1;	
+	}
+}
+
+dec {
+	synchr (syn) {
+		zm -= 1;	
+	}
+}
+
+
+Wątki typu A, B;
+
+synchr incA() {
+	zmA += 1;
+}
+
+synchr incB() {
+	zmB += 1;
+}
+
+Tutaj wątki typu A, B są serializowane? (jedno gardło) |A| + |B|;
+
+
+Object synA, synB;
+
+incA {
+	synchr (syn) {
+		zmA += 1;	
+	}
+}
+
+incB {
+	synchr (syn) {
+		zmB += 1;	
+	}
+}
+
+Rozdzielane gardło na dwie części; min(|A|, |B|);
