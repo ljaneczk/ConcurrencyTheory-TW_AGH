@@ -269,9 +269,9 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Unnamed" type="Application" factoryName="Application">
+    <configuration name="Run" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="threads" />
+      <module name="semaphores" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

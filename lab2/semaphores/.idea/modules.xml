@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/threads.iml" filepath="$PROJECT_DIR$/threads.iml" />
+      <module fileurl="file://$PROJECT_DIR$/semaphores.iml" filepath="$PROJECT_DIR$/semaphores.iml" />
     </modules>
   </component>
 </project>

@@ -1,6 +1,3 @@
-import counter.Counter;
-import counter.MyThreadDecrement;
-import counter.MyThreadIncrement;
 import producer_and_consumer.Buffer;
 import producer_and_consumer.Consumer;
 import producer_and_consumer.Producer;
@@ -13,7 +10,6 @@ import static java.lang.Thread.sleep;
 
 public class Main {
     public static void main(String[] args) {
-        // runCounters();
         runMonitors();
         runShopping();
     }
@@ -58,21 +54,5 @@ public class Main {
                 exc.printStackTrace();
             }
         }
-    }
-
-    private static void runCounters() {
-        Counter counter = new Counter();
-        MyThreadIncrement myThreadIncrement = new MyThreadIncrement(counter);
-        MyThreadDecrement myThreadDecrement = new MyThreadDecrement(counter);
-        myThreadIncrement.start();
-        myThreadDecrement.start();
-        try {
-            myThreadIncrement.join();
-            myThreadDecrement.join();
-        }
-        catch (Exception exc) {
-            exc.printStackTrace();
-        }
-        System.out.println(counter);
     }
 }
