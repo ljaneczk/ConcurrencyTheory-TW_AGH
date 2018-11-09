@@ -15,8 +15,8 @@ public class Printer {
         return id;
     }
 
-    public void print(Printer message) {
-        System.out.println(this.toString() + " is printing: \"" + message + "\"");
+    public void print(String message) {
+        System.out.println(this + " is printing: \"" + message + "\"");
         System.out.println("PRINTING FINISHED");
     }
 

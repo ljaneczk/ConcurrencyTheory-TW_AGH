@@ -11,10 +11,10 @@ public class PrintersCustomer implements Runnable {
     public void run() {
         int round = 0; boolean continuePrinting = true; Printer printer;
         while (continuePrinting) {
-            String taskToPrint = "Message " + round + " from " + this.toString();
+            String taskToPrint = "Message " + round + " from " + this;
             try {
                 printer = printersMonitor.takePrinter();
-                printer.print(new Printer(-1));
+                printer.print(taskToPrint);
                 printersMonitor.leavePrinter(printer);
             }
             catch (Exception exc) {

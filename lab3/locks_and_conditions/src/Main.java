@@ -13,9 +13,9 @@ import static java.lang.Thread.sleep;
 
 public class Main {
     public static void main(String[] args) {
-        // runMonitors();
-        // runPrinters();
-         runWaiter();
+        //runMonitors();
+        //runPrinters();
+        runWaiter();
     }
 
     private static void runMonitors() {
