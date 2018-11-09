@@ -8,7 +8,12 @@ public class RestaurantCustomer implements Runnable {
     private int id;
     private int pairId;
     private Waiter waiter;
-    private static Random random = new Random();
+
+    private static final Random random = new Random();
+    private static final String YELLOW = "\u001B[33m";
+    private static final String GREEN = "\u001B[32m";
+    private static final String CYAN = "\u001B[36m";
+    private static final String END = "\u001B[0m";
 
     public RestaurantCustomer(int id, int pairId, Waiter waiter) {
         this.id = id;
@@ -25,11 +30,11 @@ public class RestaurantCustomer implements Runnable {
         while (continueEating) {
             try {
                 Thread.sleep(randSleep());
-                System.out.println("\u001B[33m" + this + " WANTS A TABLE!" + "\u001B[0m");
+                System.out.println(YELLOW + this + " WANTS A TABLE!" + END);
                 waiter.takeTable(this);
-                System.out.println("\u001B[32m" + this + " HAS A TABLE!" + "\u001B[0m");
+                System.out.println(GREEN + this + " HAS A TABLE!" + END);
                 Thread.sleep(randSleep());
-                System.out.println("\u001B[36m" + this + " FINISHED EATING!" + "\u001B[0m");
+                System.out.println(CYAN + this + " FINISHED EATING!" + END);
                 waiter.leaveTable(this);
             } catch (Exception exc) {
                 exc.printStackTrace();
