@@ -9,8 +9,6 @@ import waiter.Waiter;
 import java.util.HashMap;
 import java.util.Map;
 
-import static java.lang.Thread.sleep;
-
 public class Main {
     public static void main(String[] args) {
         //runMonitors();
