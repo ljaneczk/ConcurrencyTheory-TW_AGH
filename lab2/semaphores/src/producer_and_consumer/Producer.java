@@ -2,11 +2,10 @@ package producer_and_consumer;
 
 public class Producer implements Runnable {
     private Buffer buffer;
-    private int times = 5;
+    private int times;
 
-    public Producer(Buffer buffer) {
-        this.buffer = buffer;
-    }
+    public Producer(Buffer buffer, int times) { this.buffer = buffer; this.times = times; }
+    public Producer(Buffer buffer) { this(buffer, 5); }
 
     public void run() {
 
