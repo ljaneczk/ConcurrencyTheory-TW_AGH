@@ -1,16 +1,12 @@
 package shopping;
 
 public class ShoppingCart {
-    private int number = 0;
-    private String info = "";
-    public ShoppingCart() { }
-    public ShoppingCart(int number) {
-        this.number = number;
-    }
-    public ShoppingCart(int number, String info) {
-        this.number = number;
-        this.info = info;
-    }
+    private int number;
+    private String info;
+
+    public ShoppingCart(int number, String info) { this.number = number;this.info = info; }
+    public ShoppingCart(int number) { this(number, ""); }
+    public ShoppingCart() { this(0, ""); }
 
     public int getNumber() {
         return number;
@@ -26,5 +22,10 @@ public class ShoppingCart {
 
     void setInfo(String info) {
         this.info = info;
+    }
+
+    @Override
+    public String toString() {
+        return "Shopping cart " + number + ((info.equals("") ? "" : " " + info));
     }
 }

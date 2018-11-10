@@ -7,8 +7,8 @@ public class Shop {
     private int shoppingCartsNumber;
     private ShoppingCart[] shoppingCarts;
     private boolean[] takenShoppingCarts;
-    private CountingSemaphore countingSemaphore;
-    private BinarySemaphore accessSemaphore;
+    private final CountingSemaphore countingSemaphore;
+    private final BinarySemaphore accessSemaphore;
 
     public Shop(int shoppingCartsNumber) {
         this.shoppingCartsNumber = shoppingCartsNumber;
@@ -22,25 +22,23 @@ public class Shop {
         }
     }
 
-    public int takeShoppingCart(int client) {
+    public ShoppingCart takeShoppingCart(int client) {
         countingSemaphore.P();
         accessSemaphore.P();
-        int shoppingCartID = -1;
-        for (int i = 0; i < this.shoppingCartsNumber && shoppingCartID == -1; i++)
+        int index = -1;
+        for (int i = 0; i < this.shoppingCartsNumber && index == -1; i++)
             if (!this.takenShoppingCarts[i]) {
                 this.takenShoppingCarts[i] = true;
-                shoppingCartID = i;
+                index = i;
             }
         accessSemaphore.V();
-        System.out.println("Client " + client + " takes " + shoppingCartID + " shopping cart.");
-        return shoppingCartID;
+        return shoppingCarts[index];
     }
 
-    public void putAwayShoppingCart(int index, int client) {
+    public void putAwayShoppingCart(ShoppingCart shoppingCart, int client) {
         countingSemaphore.V();
         accessSemaphore.P();
-        this.takenShoppingCarts[index] = false;
+        this.takenShoppingCarts[shoppingCart.getNumber()] = false;
         accessSemaphore.V();
-        System.out.println("Client " + client + " puts away " + index + " shopping cart.");
     }
 }
