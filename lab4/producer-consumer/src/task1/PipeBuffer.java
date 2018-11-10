@@ -13,6 +13,8 @@ public class PipeBuffer {
     private Condition[] conditions;
 
     public PipeBuffer(Data[] data) {
+        if (data == null)
+            throw new NullPointerException("Cannot create buffer from null data.");
         this.buffer = data;
         this.n = data.length;
         this.processIds = new int[n];
