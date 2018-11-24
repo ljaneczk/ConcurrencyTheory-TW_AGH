@@ -1,4 +1,4 @@
-package task2;
+package task2.unfair;
 
 import task2.common.Data;
 

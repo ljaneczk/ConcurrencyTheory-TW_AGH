@@ -1,14 +1,14 @@
-package task2;
+package task2.fair;
 
 import task2.common.Data;
 import task2.common.MyRandom;
 
-public class UnfairConsumer implements Runnable {
+public class FairConsumer implements Runnable {
     private MyRandom random;
-    private UnfairBuffer buffer;
+    private FairBuffer buffer;
     private int id;
 
-    public UnfairConsumer(MyRandom random, UnfairBuffer buffer, int id) {
+    public FairConsumer(MyRandom random, FairBuffer buffer, int id) {
         this.random = random;
         this.buffer = buffer;
         this.id = id;

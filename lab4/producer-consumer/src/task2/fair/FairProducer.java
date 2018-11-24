@@ -1,4 +1,4 @@
-package task2;
+package task2.fair;
 
 import task2.common.Data;
 import task2.common.MyRandom;
