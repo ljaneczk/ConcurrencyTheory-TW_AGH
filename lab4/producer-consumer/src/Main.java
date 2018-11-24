@@ -1,10 +1,15 @@
 import task1.*;
-import task2.*;
 import task2.common.MyRandom;
+import task2.fair.FairBuffer;
+import task2.fair.FairConsumer;
+import task2.fair.FairProducer;
+import task2.unfair.UnfairBuffer;
+import task2.unfair.UnfairConsumer;
+import task2.unfair.UnfairProducer;
 
 public class Main {
     public static void main(String[] args) {
-        runTask1();
+        //runTask1();
         runTask2();
     }
 
@@ -28,7 +33,7 @@ public class Main {
     }
 
     private static void runTask2Unfair() {
-        int n0 = 100, n1 = 100, M = 10000;
+        int n0 = 10, n1 = 10, M = 1000;
         MyRandom random = new MyRandom(M);
         UnfairBuffer buffer = new UnfairBuffer(M);
         Thread[] threads = new Thread[n0+n1];
@@ -41,7 +46,7 @@ public class Main {
     }
 
     private static void runTask2Fair() {
-        int n0 = 100, n1 = 100, M = 1000;
+        int n0 = 10, n1 = 10, M = 1000;
         MyRandom random = new MyRandom(M);
         FairBuffer buffer = new FairBuffer(M);
         Thread[] threads = new Thread[n0+n1];
