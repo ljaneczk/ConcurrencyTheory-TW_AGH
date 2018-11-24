@@ -4,7 +4,7 @@ import java.util.Random;
 
 import static java.lang.Math.abs;
 
-public class Worker implements Runnable {
+public class PipeWorker implements Runnable {
     private int id;
     private int prevId;
     private int n;
@@ -16,7 +16,7 @@ public class Worker implements Runnable {
     private static final String CYAN = "\u001B[36m";
     private static final String END = "\u001B[0m";
 
-    public Worker(int id, int prevId, PipeBuffer pipeBuffer) {
+    public PipeWorker(int id, int prevId, PipeBuffer pipeBuffer) {
         this.id = id;
         this.prevId = prevId;
         this.pipeBuffer = pipeBuffer;
@@ -46,7 +46,7 @@ public class Worker implements Runnable {
 
     @Override
     public String toString() {
-        return "Worker " + id;
+        return "PipeWorker " + id;
     }
 
     private static int rand() {

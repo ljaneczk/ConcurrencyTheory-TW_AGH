@@ -1,8 +1,6 @@
 package task1;
 
-import javax.management.RuntimeErrorException;
 import java.util.concurrent.locks.Condition;
-import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class PipeBuffer {
@@ -27,7 +25,7 @@ public class PipeBuffer {
         }
     }
 
-    public Data getDataToProceed(int i, Worker worker) {
+    public Data getDataToProceed(int i, PipeWorker worker) {
         if (i < 0 || i >= n)
             throw new IndexOutOfBoundsException("Buffer indices are in range(0, " + (n-1) + ").");
         locks[i].lock();
@@ -36,7 +34,7 @@ public class PipeBuffer {
         return buffer[i];
     }
 
-    public void finishProceedingData(int i, Data data, Worker worker) {
+    public void finishProceedingData(int i, Data data, PipeWorker worker) {
         if (i < 0 || i >= n)
             throw new IndexOutOfBoundsException("Buffer indices are in range(0, " + (n-1) + ").");
         if (!locks[i].isHeldByCurrentThread())
