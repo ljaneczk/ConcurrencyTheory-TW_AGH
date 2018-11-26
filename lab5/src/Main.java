@@ -35,7 +35,7 @@ public class Main {
             start = System.nanoTime();
             Mandelbrot mandelbrot = new Mandelbrot(numberOfThreads, maxIteration, strategy);
             mandelbrot.setVisible(true);
-            //mandelbrot.dispose();
+            mandelbrot.dispose();
             end = System.nanoTime();
             calculator.add(end - start);
         }
